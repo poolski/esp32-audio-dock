@@ -1,0 +1,5 @@
+# Set to "true" in a device config's substitutions to use encrypted OTA.
+substitutions:
+  use_ota_encryption_key: "false"
+
+ota: !include ota-${use_ota_encryption_key}.yaml

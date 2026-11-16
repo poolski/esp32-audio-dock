@@ -1,0 +1,3 @@
+- platform: esphome
+  encryption:
+    key: !secret encryption_key

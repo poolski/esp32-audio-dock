@@ -29,9 +29,9 @@ logger:
 api:
 
 # Allow Over-The-Air updates
-ota:
-  platform: esphome
-  password: !secret ota_password
+
+packages:
+  ota_config: !include packages/ota.yaml
 
 wifi:
   ssid: !secret wifi_ssid

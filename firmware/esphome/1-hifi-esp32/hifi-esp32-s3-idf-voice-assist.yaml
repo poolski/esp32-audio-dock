@@ -93,10 +93,6 @@ logger:
   level: DEBUG
   initial_level: INFO
 
-ota:
-  platform: esphome
-  password: !secret ota_password
-
 wifi:
   ssid: !secret wifi_ssid
   password: !secret wifi_password
@@ -116,6 +112,7 @@ network:
 
 # ===== Packages =====
 packages:
+  ota_config: !include packages/ota.yaml
   esparagus_remote:
     url: https://github.com/sonocotta/esp32-audio-dock
     ref: main

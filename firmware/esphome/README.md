@@ -651,8 +651,10 @@ Feel free to experiment with IR/RGB/Rotary/OLED configuration. Only the most bas
 
 These configs use the stock ESPHome secret names, so if you already run ESPHome
 (the dashboard, the Home Assistant add-on, or the CLI) your existing
-`secrets.yaml` most likely already has the Wi-Fi keys and the configs compile
-without any edits. Only `ota_password` may need adding.
+`secrets.yaml` most likely already has the Wi-Fi keys. The OTA package uses the
+legacy `ota_password` by default; to use encrypted OTA, set
+`use_ota_encryption_key: "true"` in the device config's `substitutions` and add
+an `encryption_key` to `secrets.yaml`.
 
 1. Copy the example: `cp secrets/secrets.yaml.example secrets/secrets.yaml`
 2. Edit `secrets/secrets.yaml` with your credentials:
@@ -664,6 +666,9 @@ wifi_password: "YourWiFiPassword"
 
 # Password used for over-the-air (OTA) updates
 ota_password: "YourOTAPassword"
+
+# Base64-encoded 32-byte key for encrypted OTA
+encryption_key: "YourBase64Encoded32ByteKey"
 
 # Password for the fallback access point (legacy boards only)
 ap_password: "YourAPPassword"
